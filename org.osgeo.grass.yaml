@@ -100,7 +100,7 @@ modules:
     sources:
       - type: archive
         url: https://github.com/OSGeo/libgeotiff/releases/download/1.7.3/libgeotiff-1.7.3.tar.gz
-        sha256: 19f936eedb6bf706da6e750dd320e75a760d6dd76493fef06e12d28c3a0af71e
+        sha256: ba23a3a35980ed3de916e125c739251f8e3266be07540200125a307d7cf5a704
 
   # PDAL - Point Data Abstraction Library (for LiDAR support)
   - name: pdal
