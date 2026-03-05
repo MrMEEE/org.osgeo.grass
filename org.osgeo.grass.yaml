@@ -46,7 +46,8 @@ modules:
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
       - -DBUILD_TESTING=OFF
-      - -DGDAL_USE_INTERNAL_LIBS=OFF
+      - -DGDAL_USE_INTERNAL_LIBS=WHEN_NO_EXTERNAL
+      - -DGDAL_ENABLE_DRIVER_JPEG=OFF
     sources:
       - type: archive
         url: https://github.com/OSGeo/gdal/releases/download/v3.10.1/gdal-3.10.1.tar.gz
