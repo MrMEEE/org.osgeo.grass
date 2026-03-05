@@ -97,6 +97,7 @@ modules:
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
       - -DBUILD_TESTING=OFF
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     sources:
       - type: archive
         url: https://github.com/OSGeo/libgeotiff/releases/download/1.7.3/libgeotiff-1.7.3.tar.gz
