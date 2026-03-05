@@ -64,6 +64,20 @@ modules:
         url: https://download.osgeo.org/geos/geos-3.13.0.tar.bz2
         sha256: 47ec83ff334d672b9e4426695f15da6e6368244214971fabf386ff8ef6df39e4
 
+  # HDF5 - Required by NetCDF
+  - name: hdf5
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_TESTING=OFF
+      - -DHDF5_BUILD_EXAMPLES=OFF
+      - -DHDF5_BUILD_TOOLS=ON
+      - -DHDF5_ENABLE_Z_LIB_SUPPORT=ON
+    sources:
+      - type: archive
+        url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5_1.14.5.tar.gz
+        sha256: ec2e13c52e60f9a01491bb3158cb3778c985697131fc6a342262d32a26e58e44
+
   # NetCDF
   - name: netcdf
     buildsystem: cmake-ninja
