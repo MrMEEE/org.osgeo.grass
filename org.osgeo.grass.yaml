@@ -67,6 +67,7 @@ modules:
   # HDF5 - Required by NetCDF
   - name: hdf5
     buildsystem: cmake-ninja
+    builddir: true
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
       - -DBUILD_TESTING=OFF
