@@ -39,7 +39,7 @@ modules:
     sources:
       - type: archive
         url: https://download.osgeo.org/proj/proj-9.5.1.tar.gz
-        sha256: 5d7c2e05d35f189f0c3d935b19a58a14df68e98f92e9a5dfc21ab64e3e3eb9ea
+        sha256: a8395f9696338ffd46b0feb603edbb730fad6746fba77753c77f7f997345e3d3
 
   # GDAL - Geospatial Data Abstraction Library  
   - name: gdal
