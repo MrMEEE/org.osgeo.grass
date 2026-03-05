@@ -23,11 +23,11 @@ modules:
   - name: python3-numpy
     buildsystem: simple
     build-commands:
-      - pip3 install --verbose --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} --no-deps numpy-2.2.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+      - pip3 install --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} *.whl
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/8c/3d/1e1db36cfd41f895d266b103df00ca5b3cbe965184df824dec5c08c6b803/numpy-2.2.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-        sha256: fd83c01228a688733f1ded5201c678f0c53ecc1006ffbc404db9f7a899ac6249
+        url: https://files.pythonhosted.org/packages/19/49/4df9123aafa7b539317bf6d342cb6d227e49f7a35b99c287a6109b13dd93/numpy-2.2.6-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+        sha256: 1bc23a79bfabc5d056d106f9befb8d50c31ced2fbc70eedb8155aec74a45798f
 
   # PROJ - Cartographic projection library
   - name: proj
