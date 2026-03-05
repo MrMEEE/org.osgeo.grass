@@ -101,7 +101,7 @@ modules:
     sources:
       - type: archive
         url: https://github.com/PDAL/PDAL/releases/download/2.8.4/PDAL-2.8.4-src.tar.bz2
-        sha256: 65b37e2bf5bbdf68fd9c6ff07ae3e8e8f130c9ab1ef5db1e6a3ce6f4e879b1d2
+        sha256: c27dc79af0b26f9cb3209b694703e9d576f1b0c8c05b36206fd5e310494e75b5
 
   # GRASS GIS
   - name: grass
