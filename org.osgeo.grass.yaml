@@ -1,0 +1,132 @@
+app-id: org.osgeo.grass
+runtime: org.freedesktop.Platform
+runtime-version: '25.08'
+sdk: org.freedesktop.Sdk
+command: grass
+rename-desktop-file: grass.desktop
+rename-icon: grass
+
+finish-args:
+  - --socket=x11
+  - --share=ipc
+  - --socket=wayland
+  - --device=dri
+  - --share=network
+  - --filesystem=home
+  - --filesystem=xdg-documents
+  - --socket=session-bus
+  - --env=PATH=/app/bin:/app/grass/bin:/usr/bin
+  - --env=PYTHONPATH=/app/lib/python3.12/site-packages
+
+modules:
+  # Python dependencies
+  - name: python3-numpy
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST}
+        numpy
+    sources:
+      - type: file
+        url: https://files.pythonhosted.org/packages/4b/d7/ecf66c1cd12dc28b4040b15ab4d17b773b87fa9d29ca16125de01adb36cd/numpy-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+        sha256: c54c86e289757ac79f60f0b4f94f4ab5b8aa36c1b7c0d4f5075d9a18e5e81c0ec
+
+  # PROJ - Cartographic projection library
+  - name: proj
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_TESTING=OFF
+    sources:
+      - type: archive
+        url: https://download.osgeo.org/proj/proj-9.5.1.tar.gz
+        sha256: 5d7c2e05d35f189f0c3d935b19a58a14df68e98f92e9a5dfc21ab64e3e3eb9ea
+
+  # GDAL - Geospatial Data Abstraction Library  
+  - name: gdal
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_TESTING=OFF
+      - -DGDAL_USE_INTERNAL_LIBS=ON
+    sources:
+      - type: archive
+        url: https://github.com/OSGeo/gdal/releases/download/v3.10.1/gdal-3.10.1.tar.gz
+        sha256: 4e719b4cef9068cbd3c55ec1523cc6cc96e8ee59c99e9da7de4f7eef94750969
+
+  # GEOS - Geometry Engine
+  - name: geos
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_TESTING=OFF
+    sources:
+      - type: archive
+        url: https://download.osgeo.org/geos/geos-3.13.0.tar.bz2
+        sha256: 47ec83efa381b5c3d0fa5f6cfadf8b0be881c5c02f89dc5e516ab5ce73d34b32
+
+  # NetCDF
+  - name: netcdf
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_TESTING=OFF
+      - -DENABLE_DAP=OFF
+    sources:
+      - type: archive
+        url: https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.9.2.tar.gz
+        sha256: bc104d101278c68b303359b3dc4192f81592ae8640f1aee486921138f7f88cb7
+
+  # GRASS GIS
+  - name: grass
+    buildsystem: autotools
+    config-opts:
+      - --prefix=/app/grass
+      - --enable-largefile
+      - --with-cxx
+      - --with-proj
+      - --with-proj-share=/app/share/proj
+      - --with-gdal
+      - --with-geos
+      - --with-sqlite
+      - --with-bzlib
+      - --with-zstd
+      - --with-cairo
+      - --with-freetype
+      - --with-readline
+      - --with-netcdf
+      - --without-mysql
+      - --without-postgres
+      - --without-odbc
+      - --without-fftw
+      - --without-openmp
+    build-commands:
+      - make -j${FLATPAK_BUILDER_N_JOBS}
+      - make install
+      # Create wrapper script in /app/bin
+      - |
+        cat > /app/bin/grass << 'EOF'
+        #!/bin/sh
+        export GISBASE=/app/grass
+        export PATH="${GISBASE}/bin:${GISBASE}/scripts:${PATH}"
+        export LD_LIBRARY_PATH="${GISBASE}/lib:${LD_LIBRARY_PATH}"
+        export PYTHONPATH="${GISBASE}/etc/python:${PYTHONPATH}"
+        exec "${GISBASE}/bin/grass" "$@"
+        EOF
+      - chmod +x /app/bin/grass
+      # Install desktop file
+      - install -Dm644 gui/icons/grass.desktop /app/share/applications/org.osgeo.grass.desktop
+      - desktop-file-edit --set-key=Icon --set-value=org.osgeo.grass /app/share/applications/org.osgeo.grass.desktop
+      - desktop-file-edit --set-key=Exec --set-value=grass /app/share/applications/org.osgeo.grass.desktop
+      # Install icons
+      - install -Dm644 gui/icons/grass-64x64.png /app/share/icons/hicolor/64x64/apps/org.osgeo.grass.png
+      - install -Dm644 gui/icons/grass-128x128.png /app/share/icons/hicolor/128x128/apps/org.osgeo.grass.png
+      - install -Dm644 gui/icons/grass-192x192.png /app/share/icons/hicolor/192x192/apps/org.osgeo.grass.png
+      # Install AppStream metadata
+      - install -Dm644 org.osgeo.grass.metainfo.xml /app/share/metainfo/org.osgeo.grass.metainfo.xml
+    sources:
+      - type: archive
+        url: https://github.com/OSGeo/grass/releases/download/8.4.2/grass-8.4.2.tar.gz
+        sha256: 68abc6c119939e40736a96360e9f6ab73e56f74772ec88c31688136215047a8c
+      
+      - type: file
+        path: org.osgeo.grass.metainfo.xml

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>org.osgeo.grass</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0-or-later</project_license>
+  <name>GRASS GIS</name>
+  <summary>Geographic Resources Analysis Support System</summary>
+  
+  <description>
+    <p>
+      GRASS GIS (Geographic Resources Analysis Support System) is a free and open source
+      Geographic Information System (GIS) software suite used for geospatial data management
+      and analysis, image processing, graphics and maps production, spatial modeling, and
+      visualization.
+    </p>
+    <p>
+      GRASS GIS is currently used in academic and commercial settings around the world, as well
+      as by many governmental agencies and environmental consulting companies. It is a founding
+      member of the Open Source Geospatial Foundation (OSGeo).
+    </p>
+    <p>
+      Key features:
+    </p>
+    <ul>
+      <li>Raster and vector data processing</li>
+      <li>Image processing and analysis</li>
+      <li>Spatial modeling and simulation</li>
+      <li>3D visualization</li>
+      <li>Temporal data management</li>
+      <li>Python API for scripting and automation</li>
+      <li>Over 500 modules for geospatial analysis</li>
+      <li>Support for multiple file formats via GDAL/OGR</li>
+    </ul>
+  </description>
+  
+  <launchable type="desktop-id">org.osgeo.grass.desktop</launchable>
+  
+  <url type="homepage">https://grass.osgeo.org/</url>
+  <url type="bugtracker">https://github.com/OSGeo/grass/issues</url>
+  <url type="help">https://grass.osgeo.org/learn/</url>
+  <url type="donation">https://grass.osgeo.org/support/</url>
+  <url type="vcs-browser">https://github.com/OSGeo/grass</url>
+  
+  <screenshots>
+    <screenshot type="default">
+      <caption>GRASS GIS main interface with map display</caption>
+      <image>https://grass.osgeo.org/images/gallery/gui/grass84_startup.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>3D visualization capabilities</caption>
+      <image>https://grass.osgeo.org/images/gallery/gui/wxnviz.png</image>
+    </screenshot>
+  </screenshots>
+  
+  <categories>
+    <category>Science</category>
+    <category>Geoscience</category>
+    <category>Geography</category>
+  </categories>
+  
+  <content_rating type="oars-1.1" />
+  
+  <releases>
+    <release version="8.4.2" date="2024-12-20">
+      <description>
+        <p>Bug fixes and improvements to GRASS GIS 8.4</p>
+      </description>
+    </release>
+  </releases>
+  
+  <provides>
+    <binary>grass</binary>
+  </provides>
+  
+  <developer_name>GRASS Development Team</developer_name>
+  
+  <keywords>
+    <keyword>GIS</keyword>
+    <keyword>Geographic</keyword>
+    <keyword>Geospatial</keyword>
+    <keyword>Raster</keyword>
+    <keyword>Vector</keyword>
+    <keyword>Mapping</keyword>
+    <keyword>Analysis</keyword>
+  </keywords>
+</component>
