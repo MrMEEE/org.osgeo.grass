@@ -27,8 +27,8 @@ modules:
         numpy
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/4b/d7/ecf66c1cd12dc28b4040b15ab4d17b773b87fa9d29ca16125de01adb36cd/numpy-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-        sha256: c54c86e289757ac79f60f0b4f94f4ab5b8aa36c1b7c0d4f5075d9a18e5e81c0ec
+        url: https://files.pythonhosted.org/packages/10/20/ad50eb1e247fd0dfa17d8a68fe2674663cb1a87e61ede34ea8aaf783ecc7/numpy-2.2.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
+        sha256: fd83c01228a688733f1ded5201c678f0c53ecc1006ffbc404db9f7a899ac6249
 
   # PROJ - Cartographic projection library
   - name: proj
