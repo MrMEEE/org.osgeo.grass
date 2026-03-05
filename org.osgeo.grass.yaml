@@ -76,7 +76,7 @@ modules:
     sources:
       - type: archive
         url: https://github.com/HDFGroup/hdf5/archive/refs/tags/hdf5_1.14.5.tar.gz
-        sha256: ec2e13c52e60f9a01491bb3158cb3778c985697131fc6a342262d32a26e58e44
+        sha256: c83996dc79080a34e7b5244a1d5ea076abfd642ec12d7c25388e2fdd81d26350
 
   # NetCDF
   - name: netcdf
