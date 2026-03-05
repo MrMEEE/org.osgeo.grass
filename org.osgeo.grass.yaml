@@ -91,6 +91,18 @@ modules:
         url: https://github.com/Unidata/netcdf-c/archive/refs/tags/v4.9.2.tar.gz
         sha256: bc104d101278c68b303359b3dc4192f81592ae8640f1aee486921138f7f88cb7
 
+  # PDAL - Point Data Abstraction Library (for LiDAR support)
+  - name: pdal
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DBUILD_TESTING=OFF
+      - -DWITH_TESTS=OFF
+    sources:
+      - type: archive
+        url: https://github.com/PDAL/PDAL/releases/download/2.8.4/PDAL-2.8.4-src.tar.bz2
+        sha256: 65b37e2bf5bbdf68fd9c6ff07ae3e8e8f130c9ab1ef5db1e6a3ce6f4e879b1d2
+
   # GRASS GIS
   - name: grass
     buildsystem: autotools
@@ -109,6 +121,7 @@ modules:
       - --with-freetype
       - --with-readline
       - --with-netcdf
+      - --with-pdal
       - --without-mysql
       - --without-postgres
       - --without-odbc
