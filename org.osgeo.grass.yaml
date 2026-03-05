@@ -51,7 +51,7 @@ modules:
     sources:
       - type: archive
         url: https://github.com/OSGeo/gdal/releases/download/v3.10.1/gdal-3.10.1.tar.gz
-        sha256: 4e719b4cef9068cbd3c55ec1523cc6cc96e8ee59c99e9da7de4f7eef94750969
+        sha256: b1c739256d074be42d67c6c3d33eee94c90a490ebb02fcb7fc21c569a6fc78bd
 
   # GEOS - Geometry Engine
   - name: geos
@@ -62,7 +62,7 @@ modules:
     sources:
       - type: archive
         url: https://download.osgeo.org/geos/geos-3.13.0.tar.bz2
-        sha256: 47ec83efa381b5c3d0fa5f6cfadf8b0be881c5c02f89dc5e516ab5ce73d34b32
+        sha256: 47ec83ff334d672b9e4426695f15da6e6368244214971fabf386ff8ef6df39e4
 
   # NetCDF
   - name: netcdf
