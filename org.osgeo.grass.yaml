@@ -4,7 +4,6 @@ runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: grass
 rename-desktop-file: grass.desktop
-rename-icon: grass
 
 finish-args:
   - --socket=x11
