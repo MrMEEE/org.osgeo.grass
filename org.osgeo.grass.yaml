@@ -153,7 +153,7 @@ modules:
       - |
         cat > /app/bin/grass << 'EOF'
         #!/bin/sh
-        export GISBASE=/app/grass
+        export GISBASE=/app/grass/grass84
         export PATH="${GISBASE}/bin:${GISBASE}/scripts:${PATH}"
         export LD_LIBRARY_PATH="${GISBASE}/lib:${LD_LIBRARY_PATH}"
         export PYTHONPATH="${GISBASE}/etc/python:${PYTHONPATH}"
