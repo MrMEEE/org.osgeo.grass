@@ -161,10 +161,10 @@ modules:
         exec "${GISBASE}/bin/grass" "$@"
         EOF
       - chmod +x /app/bin/grass
-      # Install desktop file
-      - install -Dm644 gui/icons/grass.desktop /app/share/applications/org.osgeo.grass.desktop
-      - desktop-file-edit --set-key=Icon --set-value=org.osgeo.grass /app/share/applications/org.osgeo.grass.desktop
-      - desktop-file-edit --set-key=Exec --set-value=grass /app/share/applications/org.osgeo.grass.desktop
+      # Install desktop file (will be renamed by flatpak-builder)
+      - install -Dm644 gui/icons/grass.desktop /app/share/applications/grass.desktop
+      - desktop-file-edit --set-key=Icon --set-value=org.osgeo.grass /app/share/applications/grass.desktop
+      - desktop-file-edit --set-key=Exec --set-value=grass /app/share/applications/grass.desktop
       # Install icons
       - install -Dm644 gui/icons/grass-64x64.png /app/share/icons/hicolor/64x64/apps/org.osgeo.grass.png
       - install -Dm644 gui/icons/grass-128x128.png /app/share/icons/hicolor/128x128/apps/org.osgeo.grass.png
