@@ -157,7 +157,7 @@ modules:
         export PATH="${GISBASE}/bin:${GISBASE}/scripts:${PATH}"
         export LD_LIBRARY_PATH="${GISBASE}/lib:${LD_LIBRARY_PATH}"
         export PYTHONPATH="${GISBASE}/etc/python:${PYTHONPATH}"
-        exec "${GISBASE}/bin/grass" "$@"
+        exec /app/grass/bin/grass "$@"
         EOF
       - chmod +x /app/bin/grass
       # Install desktop file (will be renamed by flatpak-builder)
