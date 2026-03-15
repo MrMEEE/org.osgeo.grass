@@ -69,6 +69,8 @@ modules:
   # GLU - OpenGL Utility Library
   - name: glu
     buildsystem: meson
+    config-opts:
+      - --libdir=lib
     sources:
       - type: archive
         url: https://archive.mesa3d.org/glu/glu-9.0.3.tar.xz
