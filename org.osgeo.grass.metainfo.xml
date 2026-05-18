@@ -44,7 +44,7 @@
   <screenshots>
     <screenshot type="default">
       <caption>GRASS GIS main interface with map display</caption>
-      <image>https://grass.osgeo.org/images/gallery/gui/grass84_startup.png</image>
+      <image>https://grass.osgeo.org/images/gallery/gui/grass85_startup.png</image>
     </screenshot>
     <screenshot>
       <caption>3D visualization capabilities</caption>
@@ -61,6 +61,11 @@
   <content_rating type="oars-1.1" />
   
   <releases>
+    <release version="8.5.0" date="2026-05-08">
+      <description>
+        <p>New grass.tools Python API, CMake build support, parallelization improvements, JSON output across many tools, new r.smooth.edgepreserve tool, multiple masks per mapset, and more than 2570 improvements and fixes.</p>
+      </description>
+    </release>
     <release version="8.4.2" date="2024-12-20">
       <description>
         <p>Bug fixes and improvements to GRASS GIS 8.4</p>

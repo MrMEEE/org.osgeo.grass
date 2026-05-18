@@ -153,7 +153,7 @@ modules:
       - |
         cat > /app/bin/grass << 'EOF'
         #!/bin/sh
-        export GISBASE=/app/grass/grass84
+        export GISBASE=/app/grass/grass85
         export PATH="${GISBASE}/bin:${GISBASE}/scripts:${PATH}"
         export LD_LIBRARY_PATH="${GISBASE}/lib:${LD_LIBRARY_PATH}"
         export PYTHONPATH="${GISBASE}/etc/python:${PYTHONPATH}"
@@ -172,8 +172,8 @@ modules:
       - install -Dm644 org.osgeo.grass.metainfo.xml /app/share/metainfo/org.osgeo.grass.metainfo.xml
     sources:
       - type: archive
-        url: https://github.com/OSGeo/grass/releases/download/8.4.2/grass-8.4.2.tar.gz
-        sha256: 68abc6c119939e40736a96360e9f6ab73e56f74772ec88c31688136215047a8c
+        url: https://github.com/OSGeo/grass/releases/download/8.5.0/grass-8.5.0.tar.gz
+        sha256: 5d06c81504ea961fab709943cf41d8b3e27cdbaae7ccca5baf3f7bb0c5d9f33d
       
       - type: file
         path: org.osgeo.grass.metainfo.xml
